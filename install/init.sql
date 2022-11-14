@@ -22,6 +22,150 @@ CREATE TABLE clasificacion (
   clasificacion_hija VARCHAR (255) NOT NULL
 );
 
+/* INICIA INSERCCIÓN DE DATOS */
+INSERT INTO
+  clasificacion (nombre, clasificacion_hija)
+VALUES
+  ('Notebooks', 'Para oficina'),
+  ('Notebooks', 'Para estudiantes'),
+  ('Notebooks', 'Para diseñadores'),
+  ('Notebooks', 'Para gamers'),
+  ('Notebooks', 'Para programadores'),
+  ('Almacenamiento', 'Memoria USB'),
+  ('Almacenamiento', 'Disco duro HDD'),
+  ('Almacenamiento', 'Disco solido SSD'),
+  ('Impresoras', 'Con escaner'),
+  ('Impresoras', 'Sin escaner');
+
+INSERT INTO
+  productos (
+    modelo,
+    especificaciones,
+    precio,
+    id_clasificacion
+  )
+VALUES
+  (
+    'Lenovo 15ITL5',
+    'Procesador Intel Core i5.',
+    15299,
+    1
+  ),
+  (
+    'HP 240',
+    'Procesador Intel Celeron.',
+    6399,
+    2
+  ),
+  (
+    'Lenovo 17FS',
+    'Procesador Intel Core i9.',
+    20599,
+    4
+  ),
+  (
+    'Dell 15E',
+    'Procesador Intel Core i3.',
+    4999,
+    2
+  ),
+  (
+    'Kingston',
+    'Disco solido SSD con 256GB de almacenamiento',
+    3000,
+    8
+  ),
+  (
+    'Kingston',
+    'Disco duro HDD con 1TB de almacenamiento.',
+    2500,
+    7
+  ),
+  (
+    'HP JK1',
+    'Impresora con escaner',
+    7999,
+    9
+  ),
+  (
+    'HP LK1',
+    'Impresora',
+    4999,
+    10
+  ),
+  (
+    'Lenovo I32E',
+    'Procesador Intel Core i9.',
+    25599,
+    5
+  ),
+  (
+    'Huawei',
+    'Procesador Intel Core i7.',
+    13299,
+    3
+  );
+
+INSERT INTO
+  comentarios (texto, nombre, calificacion, id_producto)
+VALUES
+  (
+    'Cumple con su función',
+    'Antonio García',
+    7.5,
+    2
+  ),
+  (
+    'Buena relación calidad-precio',
+    'Juan Barragán',
+    9,
+    2
+  ),
+  ('Encantado!', 'Luis Morales', 10, 1),
+  (
+    'Un equipo muy rápido',
+    'Rafael Velazques',
+    10,
+    1
+  ),
+  (
+    'Lo recibí en mal estado. Al final tuve que solicitar un reemplazo',
+    'Nora Cortes',
+    5,
+    8
+  ),
+  (
+    'Imprime con muy buen color',
+    'Araceli Herrera',
+    9,
+    8
+  ),
+  (
+    'El escaner es impresionante por un costo tan bajo',
+    'Axel Araiza',
+    10,
+    7
+  ),
+  (
+    'Me ayuda mucho en mis estudios',
+    'Abraham Cortes',
+    10,
+    2
+  ),
+  (
+    'Justo lo que necesitaba para mis diseños',
+    'Daniela Villanueva',
+    10,
+    10
+  ),
+  (
+    'Un buen equipo para desarrollar',
+    'Roberto Chavez',
+    9,
+    9
+  );
+
+/* FINALIZA INSERCCIÓN DE DATOS */
 /* SE AGREGA EL FOREIGN KEY DESPUÉS DE QUE LA REFERENCIA ES CREADA */
 ALTER TABLE
   productos
