@@ -1,19 +1,19 @@
 <?php
 
-require('Database.php');
-require('Log.php');
+require('classes/Database.php');
+require('classes/Log.php');
 
 $config_file = __DIR__ . '/config.ini';
 $config = parse_ini_file($config_file, true);
 
 $config_db = $config['DB'];
 
-$product_data = json_decode(file_get_contents('test_data/data.json'), true);
+$product_data = json_decode(file_get_contents(__DIR__ . '/test_data/data.json'), true);
 $specs = $product_data['specs'];
 $brand = $product_data['brand'];
 $models = $product_data['models'];
 
-$lorem_data = file_get_contents('test_data/lorem.txt');
+$lorem_data = file_get_contents(__DIR__ . '/test_data/lorem.txt');
 
 $db = new Database($config_db['HOST'], $config_db['DATABASE'], $config_db['USER'], $config_db['PASSWORD'], $config_db['CHARSET']);
 $log = new Log();

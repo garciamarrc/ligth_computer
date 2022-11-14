@@ -6,7 +6,7 @@ class Log
   
   public function __construct()
   {
-    $this->filename =  "logs/" . date('Y-m-d H:i:s') . ".log";
+    $this->filename =  __DIR__ . "/../logs/" . date('Y-m-d H:i:s') . ".log";
   }
   
   public function writeLog(string $text)
