@@ -1,0 +1,16 @@
+{
+    "name": "marco/ligth_agency",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Marco\\LigthAgency\\": "php/"
+        }
+    },
+    "authors": [
+        {
+            "name": "marcogarz",
+            "email": "dev.84ui7@aleeas.com"
+        }
+    ],
+    "require": {}
+}
