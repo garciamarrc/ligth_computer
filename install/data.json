@@ -1,0 +1,39 @@
+{
+  "specs": {
+    "0": "Memoria RAM: 8 GB",
+    "1": "Tamaño de la pantalla: 15.6'",
+    "2": "Duración de la batería: 12 h",
+    "3": "Tipo de resolución: Full HD",
+    "4": "Con pantalla táctil: No",
+    "5": "Con lector de huella digital: No",
+    "6": "Memoria RAM DDR4",
+    "7": "Gráficos Intel Iris Xe integrados",
+    "8": "Capacidad máxima soportada de la memoria RAM: 16 GB"
+  },
+  "brand": {
+    "0": "Lenovo",
+    "1": "HP",
+    "2": "Dell",
+    "3": "Gateway",
+    "4": "Acer",
+    "5": "Sony",
+    "6": "Toshiba",
+    "7": "Asus",
+    "8": "Samsung",
+    "9": "Lanix",
+    "10": "Ghia"
+  },
+  "models": {
+    "0": "J25",
+    "1": "RX20",
+    "2": "LOB2",
+    "3": "NW2",
+    "4": "J76",
+    "5": "F900",
+    "6": "M21",
+    "7": "X PRO",
+    "8": "SLIM",
+    "9": "XTREME",
+    "10": "RYZEN"
+  }
+}

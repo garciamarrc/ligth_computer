@@ -22,6 +22,12 @@ CREATE TABLE clasificacion (
   clasificacion_hija VARCHAR (255) NOT NULL
 );
 
+/* SE AGREGA EL FOREIGN KEY DESPUÉS DE QUE LA REFERENCIA ES CREADA */
+ALTER TABLE
+  productos
+ADD
+  CONSTRAINT FOREIGN KEY (id_clasificacion) REFERENCES clasificacion(id);
+
 /* INICIA INSERCCIÓN DE DATOS */
 INSERT INTO
   clasificacion (nombre, clasificacion_hija)
@@ -166,12 +172,6 @@ VALUES
   );
 
 /* FINALIZA INSERCCIÓN DE DATOS */
-/* SE AGREGA EL FOREIGN KEY DESPUÉS DE QUE LA REFERENCIA ES CREADA */
-ALTER TABLE
-  productos
-ADD
-  CONSTRAINT FOREIGN KEY (id_clasificacion) REFERENCES clasificacion(id);
-
 /* SE CREA LA VISTA DE PRODUCTOS CON LOS REQUERIMIENTOS SOLICITADOS */
 CREATE VIEW vista_productos AS
 SELECT
