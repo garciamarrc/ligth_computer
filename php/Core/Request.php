@@ -6,7 +6,7 @@ class Request
 {
   private string $controller;
   private string $method;
-  private $arg;
+  private $params;
 
   public function __construct()
   {
@@ -17,7 +17,7 @@ class Request
 
       $this->controller = ucfirst(strtolower(array_shift($route)));
       $this->method = strtolower(array_shift($route));
-      $this->arg = $route;
+      $this->params = $route;
 
       if (!$this->controller) $this->controller = 'Home';
       if (!$this->method) $this->method = 'index';
@@ -34,8 +34,8 @@ class Request
     return $this->method;
   }
 
-  public function getArg()
+  public function getParams()
   {
-    return $this->arg;
+    return $this->params;
   }
 }

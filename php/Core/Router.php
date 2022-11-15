@@ -8,15 +8,15 @@ class Router
   {
     $controller = $request->getController() . 'Controller';
     $method = $request->getMethod();
-    $arg = $request->getArg();
+    $params = $request->getParams();
 
     $controller_namespace = "App\\Controllers\\" . $controller;
     $controller = new $controller_namespace;
 
-    if (!isset($arg)) {
+    if (!isset($params)) {
       call_user_func($controller, $method);
     } else {
-      call_user_func_array(array($controller, $method), $arg);
+      call_user_func_array(array($controller, $method), $params);
     }
   }
 }
