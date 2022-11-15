@@ -1,3 +1,5 @@
+USE computo;
+
 /* CREACIÓN DE TABLAS */
 CREATE TABLE productos (
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -13,7 +15,7 @@ CREATE TABLE comentarios (
   nombre VARCHAR(255) NOT NULL,
   calificacion DECIMAL(10, 1) NOT NULL,
   id_producto BIGINT NOT NULL,
-  CONSTRAINT fk_producto FOREIGN KEY (id_producto) REFERENCES productos(id)
+  CONSTRAINT fk_producto FOREIGN KEY (id_producto) REFERENCES productos(id) ON DELETE CASCADE
 );
 
 CREATE TABLE clasificacion (
@@ -26,7 +28,7 @@ CREATE TABLE clasificacion (
 ALTER TABLE
   productos
 ADD
-  CONSTRAINT FOREIGN KEY (id_clasificacion) REFERENCES clasificacion(id);
+  CONSTRAINT FOREIGN KEY (id_clasificacion) REFERENCES clasificacion(id) ON DELETE CASCADE;
 
 /* INICIA INSERCCIÓN DE DATOS */
 INSERT INTO

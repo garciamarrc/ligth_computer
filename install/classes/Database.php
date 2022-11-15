@@ -20,8 +20,6 @@ class Database
 
     $config_db = $config['DB'];
 
-    print_r($config_db);
-
     $this->host = $config_db['HOST'];
     $this->db = $config_db['DATABASE'];
     $this->user = $config_db['USER'];

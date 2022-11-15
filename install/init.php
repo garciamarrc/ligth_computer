@@ -9,9 +9,9 @@ use Install\Models\Product;
 use Install\Classes\Log;
 
 $product_data = json_decode(file_get_contents(__DIR__ . '/test_data/data.json'), true);
-$specs = $product_data['specs'];
-$brand = $product_data['brand'];
-$models = $product_data['models'];
+$specs_data = $product_data['specs'];
+$brand_data = $product_data['brand'];
+$models_data = $product_data['models'];
 
 $lorem_data = file_get_contents(__DIR__ . '/test_data/lorem.txt');
 
@@ -35,12 +35,14 @@ while ($classification_iteration < 10) {
 $log->writeLog("Clasificaciones insertadas: $classification_inserctions");
 
 while ($products_iteration < 200) {
-  $model = "{$brand[rand(0, 10)]} - {$models[rand(0, 10)]}";
-  $specs = "{$specs[rand(0, 8)]}<br />{$specs[rand(0, 8)]}<br /{$specs[rand(0, 8)]}";
+  $model = "{$brand_data[rand(0, 10)]} - {$models_data[rand(0, 10)]}";
+  $specs = "{$specs_data[rand(0, 8)]}<br />{$specs_data[rand(0, 8)]}<br /{$specs_data[rand(0, 8)]}";
   $price = rand(10000, 60000);
-
+  
+  $product = new Product($model, $specs, $price, 41);
+  
   try {
-    $product = new Product($model, $specs, $price, 1);
+    $product->save();
     $products_inserctions++;
   } catch (\Throwable $th) {
     $log->writeLog($th);
@@ -53,7 +55,7 @@ while ($comments_iteration < 1000) {
   $text = substr($lorem_data, rand(0, 500), rand(500, 1000));
   $rate = rand(0, 10);
 
-  $comment = new Comment($text, 'Marco', $rate, 1);
+  $comment = new Comment($text, 'Marco', $rate, 411);
 
   try {
     $comment->save();
