@@ -6,7 +6,7 @@ use App\Models\Classification;
 use App\Models\Comment;
 use App\Models\Product;
 
-use App\Utils\Log;
+use App\Core\Log;
 
 $product_data = json_decode(file_get_contents(__DIR__ . '/test_data/data.json'), true);
 $specs_data = $product_data['specs'];

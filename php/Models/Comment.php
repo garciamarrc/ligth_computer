@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Utils\Database;
+use App\Core\Database;
 
 class Comment extends Database
 {

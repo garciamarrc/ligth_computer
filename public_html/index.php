@@ -2,12 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$controller = $_GET['controller'];
-$action = $_GET['action'];
-$id = $_GET['id'];
+use App\Core\Request;
+use App\Core\Router;
 
-$controller_name = ucfirst($controller) . "Controller";
-
-$ctrl = new $controller_name;
-
-$ctrl->$action();
+Router::run(new Request());
