@@ -24,13 +24,13 @@ class Product extends Database
   public function save()
   {
     try {
-      $statement = "INSERT INTO productos (modelo, especificaciones, precio, id_clasificacion) VALUES (:model, :specs, :price, :id_clasification)";
+      $statement = "INSERT INTO productos (modelo, especificaciones, precio, id_clasificacion) VALUES (:model, :specs, :price, :id_classification)";
       $query = $this->connect()->prepare($statement);
       $query->execute([
         'model' => $this->model,
         'specs' => $this->specs,
         'price' => $this->price,
-        'id_clasification' => $this->id_classification,
+        'id_classification' => $this->id_classification,
       ]);
     } catch (\Throwable $th) {
       throw $th;
