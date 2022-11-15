@@ -4,8 +4,11 @@ namespace App\Models;
 
 use App\Core\Database;
 
+use PDO;
+
 class Product extends Database
 {
+  private int $id;
   private string $model;
   private string $specs;
   private float $price;
@@ -35,5 +38,37 @@ class Product extends Database
     } catch (\Throwable $th) {
       throw $th;
     }
+  }
+
+  public static function getRandom()
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query("SELECT * FROM productos ORDER BY RAND(id) LIMIT 1");
+
+      $product = Product::createFromArray($query->fetch(PDO::FETCH_ASSOC));
+
+      return $product;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
+  public static function createFromArray($arr): Product
+  {
+    $product = new Product($arr['modelo'], $arr['especificaciones'], $arr['precio'], $arr['id_clasificacion']);
+    $product->setId($arr['id']);
+
+    return $product;
+  }
+
+  public function setId(int $id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
   }
 }

@@ -6,7 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Install\\Models\\' => array($baseDir . '/install/models'),
-    'Install\\Classes\\' => array($baseDir . '/install/classes'),
     'App\\' => array($baseDir . '/php'),
 );

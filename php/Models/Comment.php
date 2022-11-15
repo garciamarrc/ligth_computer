@@ -4,8 +4,11 @@ namespace App\Models;
 
 use App\Core\Database;
 
+use PDO;
+
 class Comment extends Database
 {
+  private int $id;
   private string $text;
   private string $name;
   private float $rate;
@@ -35,5 +38,32 @@ class Comment extends Database
     } catch (\Throwable $th) {
       throw $th;
     }
+  }
+
+  public static function getRandom()
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query("SELECT * FROM comentarios ORDER BY RAND(id) LIMIT 1");
+
+      $comment = Comment::createFromArray($query->fetch(PDO::FETCH_ASSOC));
+
+      return $comment;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
+  public static function createFromArray($arr): Comment
+  {
+    $comment = new Comment($arr['texto'], $arr['nombre'], $arr['calificacion'], $arr['id_producto']);
+    $comment->setId($arr['id']);
+
+    return $comment;
+  }
+
+  public function setId(int $id)
+  {
+    $this->id = $id;
   }
 }

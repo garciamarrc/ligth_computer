@@ -38,9 +38,10 @@ while ($products_iteration < 200) {
   $model = "{$brand_data[rand(0, 10)]} - {$models_data[rand(0, 10)]}";
   $specs = "{$specs_data[rand(0, 8)]}<br />{$specs_data[rand(0, 8)]}<br /{$specs_data[rand(0, 8)]}";
   $price = rand(10000, 60000);
-  
-  $product = new Product($model, $specs, $price, 70);
-  
+  $classification_id = Classification::getRandom()->getId();
+
+  $product = new Product($model, $specs, $price, $classification_id);
+
   try {
     $product->save();
     $products_inserctions++;
@@ -54,8 +55,9 @@ $log->writeLog("Productos insertados: $products_inserctions");
 while ($comments_iteration < 1000) {
   $text = substr($lorem_data, rand(0, 500), rand(500, 1000));
   $rate = rand(0, 10);
+  $product_id = Product::getRandom()->getId();
 
-  $comment = new Comment($text, 'Marco', $rate, 1211);
+  $comment = new Comment($text, 'Marco', $rate, $product_id);
 
   try {
     $comment->save();

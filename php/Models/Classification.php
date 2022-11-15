@@ -3,16 +3,18 @@
 namespace App\Models;
 
 use App\Core\Database;
+use PDO;
 
 class Classification extends Database
 {
+  private int $id;
   private string $name;
   private string $sub_classification;
 
   public function __construct(string $name, string $sub_classification)
   {
     parent::__construct();
-    
+
     $this->name = $name;
     $this->sub_classification = $sub_classification;
   }
@@ -29,5 +31,37 @@ class Classification extends Database
     } catch (\Throwable $th) {
       throw $th;
     }
+  }
+
+  public static function getRandom()
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query("SELECT * FROM clasificacion ORDER BY RAND(id) LIMIT 1");
+
+      $classification = Classification::createFromArray($query->fetch(PDO::FETCH_ASSOC));
+
+      return $classification;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
+  public static function createFromArray($arr): Classification
+  {
+    $classification = new Classification($arr['nombre'], $arr['clasificacion_hija']);
+    $classification->setId($arr['id']);
+
+    return $classification;
+  }
+
+  public function setId(int $id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
   }
 }
