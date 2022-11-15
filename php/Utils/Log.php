@@ -1,6 +1,6 @@
 <?php
 
-namespace Install\Classes;
+namespace App\Utils;
 
 class Log
 {
@@ -8,7 +8,7 @@ class Log
   
   public function __construct()
   {
-    $this->filename =  __DIR__ . "/../logs/" . date('Y-m-d H:i:s') . ".log";
+    $this->filename =  __DIR__ . "/../../logs/" . date('Y-m-d H:i:s') . ".log";
   }
   
   public function writeLog(string $text)

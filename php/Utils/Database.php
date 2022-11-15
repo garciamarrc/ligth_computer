@@ -1,6 +1,6 @@
 <?php
 
-namespace Install\Classes;
+namespace App\Utils;
 
 use PDO;
 use PDOException;
@@ -15,7 +15,7 @@ class Database
 
   public function __construct()
   {
-    $config_file = __DIR__ . '/../config.ini';
+    $config_file = __DIR__ . '/../../install/config.ini';
     $config = parse_ini_file($config_file, true);
 
     $config_db = $config['DB'];

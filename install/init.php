@@ -2,11 +2,11 @@
 
 require(__DIR__ . '/../vendor/autoload.php');
 
-use Install\Models\Classification;
-use Install\Models\Comment;
-use Install\Models\Product;
+use App\Models\Classification;
+use App\Models\Comment;
+use App\Models\Product;
 
-use Install\Classes\Log;
+use App\Utils\Log;
 
 $product_data = json_decode(file_get_contents(__DIR__ . '/test_data/data.json'), true);
 $specs_data = $product_data['specs'];
@@ -39,7 +39,7 @@ while ($products_iteration < 200) {
   $specs = "{$specs_data[rand(0, 8)]}<br />{$specs_data[rand(0, 8)]}<br /{$specs_data[rand(0, 8)]}";
   $price = rand(10000, 60000);
   
-  $product = new Product($model, $specs, $price, 41);
+  $product = new Product($model, $specs, $price, 70);
   
   try {
     $product->save();
@@ -55,7 +55,7 @@ while ($comments_iteration < 1000) {
   $text = substr($lorem_data, rand(0, 500), rand(500, 1000));
   $rate = rand(0, 10);
 
-  $comment = new Comment($text, 'Marco', $rate, 411);
+  $comment = new Comment($text, 'Marco', $rate, 1211);
 
   try {
     $comment->save();

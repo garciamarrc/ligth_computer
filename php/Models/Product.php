@@ -1,8 +1,8 @@
 <?php
 
-namespace Install\Models;
+namespace App\Models;
 
-use Install\Classes\Database;
+use App\Utils\Database;
 
 class Product extends Database
 {

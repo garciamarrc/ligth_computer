@@ -3,9 +3,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "App\\": "php/",
-            "Install\\Classes\\": "install/classes/",
-            "Install\\Models\\": "install/models/"
+            "App\\": "php/"
         }
     },
     "authors": [
