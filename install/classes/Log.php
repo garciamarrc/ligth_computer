@@ -1,5 +1,7 @@
 <?php
 
+namespace Install\Classes;
+
 class Log
 {
   private string $filename;

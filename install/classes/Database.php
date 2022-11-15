@@ -1,5 +1,10 @@
 <?php
 
+namespace Install\Classes;
+
+use PDO;
+use PDOException;
+
 class Database
 {
   private string $host;
@@ -8,13 +13,20 @@ class Database
   private string $password;
   private string $charset;
 
-  public function __construct(string $host, string $database, string $user, string $password, string $charset)
+  public function __construct()
   {
-    $this->host = $host;
-    $this->db = $database;
-    $this->user = $user;
-    $this->password = $password;
-    $this->charset = $charset;
+    $config_file = __DIR__ . '/../config.ini';
+    $config = parse_ini_file($config_file, true);
+
+    $config_db = $config['DB'];
+
+    print_r($config_db);
+
+    $this->host = $config_db['HOST'];
+    $this->db = $config_db['DATABASE'];
+    $this->user = $config_db['USER'];
+    $this->password = $config_db['PASSWORD'];
+    $this->charset = $config_db['CHARSET'];
   }
 
   public function connect()

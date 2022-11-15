@@ -3,7 +3,9 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Marco\\LigthAgency\\": "php/"
+            "App\\": "php/",
+            "Install\\Classes\\": "install/classes/",
+            "Install\\Models\\": "install/models/"
         }
     },
     "authors": [
