@@ -3,14 +3,15 @@
 namespace App\Controllers;
 
 use App\Models\Classification;
+use App\Helpers\View;
 
 class HomeController
 {
   public function index()
   {
-    $classifications = Classification::getAll();
+    $classifications = Classification::readQuery("SELECT * FROM clasificacion GROUP BY nombre");
 
-    include view('Home/index');
+    include View::view('Home/index');
   }
 
   public function show()

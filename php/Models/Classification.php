@@ -66,6 +66,25 @@ class Classification extends Database
     }
   }
 
+  public static function readQuery(string $sql)
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query($sql);
+
+      $rows = [];
+
+      while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        $classification = Classification::createFromArray($row);
+        array_push($rows, $classification);
+      }
+
+      return $rows;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
   public static function createFromArray($arr): Classification
   {
     $classification = new Classification($arr['nombre'], $arr['clasificacion_hija']);
