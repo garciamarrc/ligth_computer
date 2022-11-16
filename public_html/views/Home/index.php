@@ -37,7 +37,7 @@ include View::component('navbar');
                                                 <?php foreach ($sub_classifications as $sub_classification) : ?>
                                                     <?php if ($sub_classification->getSubClassification() !== $classification->getSubClassification()) continue; ?>
                                                     <li>
-                                                        <a href="<?= APP_URL . 'category/show/' . $sub_classification->getId() ?>"><?= $sub_classification->getSubClassification() ?></a>
+                                                        <a href="<?= APP_URL . 'classification/show/' . $sub_classification->getId() ?>"><?= $sub_classification->getSubClassification() ?></a>
                                                     </li>
                                                 <?php endforeach; ?>
                                             </ul>
