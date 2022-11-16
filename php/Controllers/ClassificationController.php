@@ -10,9 +10,13 @@ class ClassificationController
 {
     public function show(int $id)
     {
+        $classifications = Classification::readQuery("SELECT * FROM clasificacion GROUP BY nombre");
+
+        $sub_classifications = Classification::readQuery("SELECT * FROM clasificacion");
+
         $products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '$id' ORDER BY RAND() LIMIT 10");
 
-        $classification = Classification::readQuery("SELECT * FROM clasificacion WHERE id = '$id'")[0];
+        $classification_selected = Classification::readQuery("SELECT * FROM clasificacion WHERE id = '$id'")[0];
 
         include View::view('Classification/show');
     }

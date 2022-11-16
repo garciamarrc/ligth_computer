@@ -2,7 +2,7 @@
 
 use App\Helpers\View;
 
-define('HEADER_TITLE', $classification->getName() . ' - ' . $classification->getSubClassification());
+define('HEADER_TITLE', $classification_selected->getName() . ' - ' . $classification_selected->getSubClassification());
 include View::layout('header.layout');
 include View::component('navbar');
 ?>
@@ -12,8 +12,10 @@ include View::component('navbar');
 
     <hr>
 
+    <?php include View::component('categories.accordion') ?>
+
     <div class="row gap-3 my-4">
-        <h2>Productos destacados - <?= $classification->getName() . '/' . $classification->getSubClassification(); ?></h2>
+        <h2>Productos destacados - <?= $classification_selected->getName() . '/' . $classification_selected->getSubClassification(); ?></h2>
         <?php if (count($products) === 0) : ?>
             <h3 class="text-muted">No se encontraron productos</h3>
         <?php else : ?>
