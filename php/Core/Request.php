@@ -21,6 +21,9 @@ class Request
 
       if (!$this->controller) $this->controller = 'Home';
       if (!$this->method) $this->method = 'index';
+    } else {
+      $this->controller = 'Home';
+      $this->method = 'index';
     }
   }
 

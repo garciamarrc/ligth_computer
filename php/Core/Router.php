@@ -14,7 +14,7 @@ class Router
     $controller = new $controller_namespace;
 
     if (!isset($params)) {
-      call_user_func($controller, $method);
+      call_user_func(array($controller, $method));
     } else {
       call_user_func_array(array($controller, $method), $params);
     }

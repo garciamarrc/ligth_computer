@@ -6,7 +6,7 @@ class HomeController
 {
   public function index()
   {
-    print "index from home controller";
+    include view('Home/index');
   }
 
   public function show()
