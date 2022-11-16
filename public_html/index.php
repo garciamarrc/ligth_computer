@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-include __DIR__ . '/../php/Helpers/View.php';
+define('APP_URL', 'http://localhost/ligth_agency/public_html/');
 
 use App\Core\Request;
 use App\Core\Router;
