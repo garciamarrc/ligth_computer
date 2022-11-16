@@ -2,7 +2,7 @@
 
 use App\Helpers\View;
 
-define('HEADER_TITLE', 'Home');
+define('HEADER_TITLE', $classification->getName() . ' - ' . $classification->getSubClassification());
 include View::layout('header.layout');
 include View::component('navbar');
 ?>
