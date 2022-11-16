@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Helpers\Ini;
 use PDO;
 use PDOException;
 
@@ -15,16 +16,11 @@ class Database
 
   public function __construct()
   {
-    $config_file = __DIR__ . '/../../install/config.ini';
-    $config = parse_ini_file($config_file, true);
-
-    $config_db = $config['DB'];
-
-    $this->host = $config_db['HOST'];
-    $this->db = $config_db['DATABASE'];
-    $this->user = $config_db['USER'];
-    $this->password = $config_db['PASSWORD'];
-    $this->charset = $config_db['CHARSET'];
+    $this->host = Ini::getVariable('DB', 'HOST');
+    $this->db = Ini::getVariable('DB', 'DATABASE');
+    $this->user = Ini::getVariable('DB', 'USER');
+    $this->password = Ini::getVariable('DB', 'PASSWORD');
+    $this->charset = Ini::getVariable('DB', 'CHARSET');
   }
 
   public function connect()
