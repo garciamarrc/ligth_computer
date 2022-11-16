@@ -18,6 +18,10 @@ class Router
 
     $controller = new $controller_namespace;
 
+    if (!method_exists($controller, $method)) {
+      header("Location: " . APP_URL . "error/notFound");
+    }
+
     if (!isset($params)) {
       call_user_func(array($controller, $method));
     } else {
