@@ -44,11 +44,30 @@ class Product extends Database
   {
     try {
       $db = new Database();
-      $query = $db->connect()->query("SELECT * FROM productos ORDER BY RAND(id) LIMIT 1");
+      $query = $db->connect()->query("SELECT * FROM productos ORDER BY RAND() LIMIT 1");
 
       $product = Product::createFromArray($query->fetch(PDO::FETCH_ASSOC));
 
       return $product;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
+  public static function readQuery(string $sql)
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query($sql);
+
+      $rows = [];
+
+      while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        $product = Product::createFromArray($row);
+        array_push($rows, $product);
+      }
+
+      return $rows;
     } catch (\Throwable $th) {
       throw $th;
     }
@@ -70,5 +89,35 @@ class Product extends Database
   public function getId()
   {
     return $this->id;
+  }
+
+  public function setModel(string $model)
+  {
+    $this->model = $model;
+  }
+
+  public function getModel()
+  {
+    return $this->model;
+  }
+
+  public function setSpecs(string $specs)
+  {
+    $this->specs = $specs;
+  }
+
+  public function getSpecs()
+  {
+    return $this->specs;
+  }
+
+  public function setPrice(float $price)
+  {
+    $this->price = $price;
+  }
+
+  public function getPrice()
+  {
+    return $this->price;
   }
 }

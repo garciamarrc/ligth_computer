@@ -56,7 +56,7 @@ class Classification extends Database
   {
     try {
       $db = new Database();
-      $query = $db->connect()->query("SELECT * FROM clasificacion ORDER BY RAND(id) LIMIT 1");
+      $query = $db->connect()->query("SELECT * FROM clasificacion ORDER BY RAND() LIMIT 1");
 
       $classification = Classification::createFromArray($query->fetch(PDO::FETCH_ASSOC));
 

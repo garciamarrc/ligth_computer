@@ -44,7 +44,7 @@ class Comment extends Database
   {
     try {
       $db = new Database();
-      $query = $db->connect()->query("SELECT * FROM comentarios ORDER BY RAND(id) LIMIT 1");
+      $query = $db->connect()->query("SELECT * FROM comentarios ORDER BY RAND() LIMIT 1");
 
       $comment = Comment::createFromArray($query->fetch(PDO::FETCH_ASSOC));
 
