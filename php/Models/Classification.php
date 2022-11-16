@@ -33,6 +33,25 @@ class Classification extends Database
     }
   }
 
+  public static function getAll()
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query("SELECT * FROM clasificacion");
+
+      $classifications = [];
+
+      while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        $classification = Classification::createFromArray($row);
+        array_push($classifications, $classification);
+      }
+
+      return $classifications;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
   public static function getRandom()
   {
     try {
@@ -63,5 +82,25 @@ class Classification extends Database
   public function getId()
   {
     return $this->id;
+  }
+
+  public function setName(string $name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setSubClassification(string $sub_classification)
+  {
+    $this->sub_classification = $sub_classification;
+  }
+
+  public function getSubClassification()
+  {
+    return $this->sub_classification;
   }
 }
