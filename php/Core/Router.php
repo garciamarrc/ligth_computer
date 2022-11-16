@@ -11,6 +11,11 @@ class Router
     $params = $request->getParams();
 
     $controller_namespace = "App\\Controllers\\" . $controller;
+
+    if (!class_exists($controller_namespace)) {
+      header("Location: " . APP_URL . "error/notFound");
+    }
+
     $controller = new $controller_namespace;
 
     if (!isset($params)) {
