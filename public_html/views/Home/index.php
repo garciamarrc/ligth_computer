@@ -8,16 +8,16 @@ include View::component('navbar');
 ?>
 
 <div class="container mt-4">
-    <h1>Bienvenido de nuevo!</h1>
+    <h1 class="display-2">Ligth Agency Computer</h1>
 
     <hr>
 
     <div class="accordion accordion-flush" id="categories-accordion">
         <div class="accordion-item">
             <h2 class="accordion-header" id="categories-flush-heading">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#categories-flush-collapse" aria-expanded="true" aria-controls="categories-flush-collapse">
+                <span class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#categories-flush-collapse" aria-expanded="true" aria-controls="categories-flush-collapse">
                     Categorías
-                </button>
+                </span>
             </h2>
             <div id="categories-flush-collapse" class="accordion-collapse collapse" aria-labelledby="categories-flush-heading" data-bs-parent="#categories-accordion">
                 <div class="accordion-body">
