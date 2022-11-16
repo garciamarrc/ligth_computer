@@ -48,5 +48,22 @@
     "8": "Donovan Hutchinson",
     "9": "Charity Rush",
     "10": "Marco Garcia"
+  },
+  "classifications": {
+    "0": "Computadoras",
+    "1": "Monitores",
+    "2": "Laptops"
+  },
+  "sub_classifications": {
+    "0": "Para oficina",
+    "1": "Para gamers",
+    "2": "Para estudiantes",
+    "3": "Para productores",
+    "4": "Para desarrolladores",
+    "5": "Para streamers",
+    "6": "Para edición de video",
+    "7": "Gama baja",
+    "8": "Gama media",
+    "9": "Gama alta"
   }
 }

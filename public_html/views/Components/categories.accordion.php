@@ -1,3 +1,8 @@
+<?php
+
+use App\Models\Classification;
+?>
+
 <div class="accordion accordion-flush" id="categories-accordion">
     <div class="accordion-item">
         <h2 class="accordion-header" id="categories-flush-heading">
@@ -21,10 +26,12 @@
                                     <div class="accordion-body">
                                         <ul>
                                             <?php foreach ($sub_classifications as $sub_classification) : ?>
-                                                <?php if ($sub_classification->getSubClassification() !== $classification->getSubClassification()) continue; ?>
-                                                <li>
-                                                    <a href="<?= APP_URL . 'classification/show/' . $sub_classification->getId() ?>"><?= $sub_classification->getSubClassification() ?></a>
-                                                </li>
+                                                <?php $related_sub_classifications = Classification::subBelongsToClassification($sub_classification->getSubClassification(), $classification->getName()) ?>
+                                                <?php foreach ($related_sub_classifications as $related_sub_classification) : ?>
+                                                    <li>
+                                                        <a href="<?= APP_URL . 'classification/show/' . $sub_classification->getId() ?>"><?= $sub_classification->getSubClassification() ?></a>
+                                                    </li>
+                                                <?php endforeach; ?>
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>

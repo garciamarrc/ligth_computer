@@ -12,6 +12,9 @@ $product_data = json_decode(file_get_contents(__DIR__ . '/test_data/data.json'),
 $specs_data = $product_data['specs'];
 $brand_data = $product_data['brand'];
 $models_data = $product_data['models'];
+$names_data = $product_data['names'];
+$classifications_data = $product_data['classifications'];
+$sub_classifications_data = $product_data['sub_classifications'];
 
 $lorem_data = file_get_contents(__DIR__ . '/test_data/lorem.txt');
 
@@ -22,7 +25,7 @@ $comments_iteration = $comments_inserctions = 0;
 $classification_iteration = $classification_inserctions = 0;
 
 while ($classification_iteration < 10) {
-  $classification = new Classification('Some', 'Sub');
+  $classification = new Classification($classifications_data[rand(0, 2)], $sub_classifications_data[$classification_iteration]);
 
   try {
     $classification->save();
@@ -56,8 +59,9 @@ while ($comments_iteration < 1000) {
   $text = substr($lorem_data, rand(0, 500), rand(500, 1000));
   $rate = rand(0, 10);
   $product_id = Product::getRandom()->getId();
+  $name = $names_data[rand(0, 10)];
 
-  $comment = new Comment($text, 'Marco', $rate, $product_id);
+  $comment = new Comment($text, $name, $rate, $product_id);
 
   try {
     $comment->save();

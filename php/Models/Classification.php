@@ -93,6 +93,25 @@ class Classification extends Database
     return $classification;
   }
 
+  public static function subBelongsToClassification(string $sub, string $classification)
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query("SELECT * FROM clasificacion WHERE clasificacion_hija = '$sub' AND nombre = '$classification'");
+
+      $rows = [];
+
+      while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        $classification = Classification::createFromArray($row);
+        array_push($rows, $classification);
+      }
+
+      return $rows;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
   public function setId(int $id)
   {
     $this->id = $id;
