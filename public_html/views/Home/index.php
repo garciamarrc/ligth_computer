@@ -44,7 +44,7 @@ include View::component('navbar');
 
     <div class="row">
         <div class="col-sm-12 gap-3 my-4">
-            <h2>Productos más vendidos de cada clasificación</h2>
+            <h2>Top 10 productos más vendidos de cada categoría</h2>
             <div class="row align-items-start">
                 <?php
                 foreach ($sub_classifications as $sub_classification) {
