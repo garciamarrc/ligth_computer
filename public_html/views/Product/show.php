@@ -33,15 +33,29 @@ include View::component('navbar');
                 </a>
             </div>
         </div>
+
         <div class="col-sm-6">
             <h4 class="mb-4">Comentarios</h4>
             <div style="height: 400px; overflow: scroll;">
-                <?php foreach ($comments as $comment) : ?>
-                    <div>
-                        <h5><?= $comment->getName() . ' - ' . number_format($comment->getRate(), 1); ?></h5>
-                        <p><?= $comment->getText(); ?></p>
-                    </div>
-                <?php endforeach; ?>
+                <?php
+                foreach ($comments as $comment) {
+                    $user_photo = file_get_contents(View::icon('user'));
+
+                    $stars = [];
+
+                    while (count($stars) < 5) {
+                        array_push($stars, file_get_contents(View::icon('unstar')));
+                    }
+
+                    for ($i = 0; $i < $comment->getRate(); $i++) {
+                        $stars[$i] = file_get_contents(View::icon('star'));
+                    }
+
+                    $stars = implode('', $stars);
+
+                    include View::component('comment.card');
+                }
+                ?>
             </div>
         </div>
     </div>

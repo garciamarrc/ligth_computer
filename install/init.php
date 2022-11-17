@@ -39,7 +39,7 @@ $log->writeLog("Clasificaciones insertadas: $classification_inserctions");
 
 while ($products_iteration < 200) {
   $model = "{$brand_data[rand(0, 10)]} - {$models_data[rand(0, 10)]}";
-  $specs = "{$specs_data[rand(0, 8)]}<br />{$specs_data[rand(0, 8)]}<br /{$specs_data[rand(0, 8)]}";
+  $specs = "{$specs_data[rand(0, 8)]}<br />{$specs_data[rand(0, 8)]}<br />{$specs_data[rand(0, 8)]}";
   $price = rand(10000, 60000);
   $classification_id = Classification::getRandom()->getId();
 
@@ -57,7 +57,7 @@ $log->writeLog("Productos insertados: $products_inserctions");
 
 while ($comments_iteration < 1000) {
   $text = substr($lorem_data, rand(0, 500), rand(500, 1000));
-  $rate = rand(0, 10);
+  $rate = rand(0, 5);
   $product_id = Product::getRandom()->getId();
   $name = $names_data[rand(0, 10)];
 

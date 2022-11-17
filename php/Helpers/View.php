@@ -18,4 +18,9 @@ class View
     {
         return __DIR__ . '/../../public_html/views/Components/' . $string . '.php';
     }
+
+    public static function icon($string)
+    {
+        return __DIR__ . '/../../public_html/views/Icons/' . $string . '.php';
+    }
 }
