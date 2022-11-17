@@ -16,7 +16,7 @@ class ClassificationController
 
         $products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '$id' ORDER BY RAND() LIMIT 10");
 
-        $most_sell_products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '$id' ORDER BY ventas DESC LIMIT 6");
+        $most_sell_products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '$id' ORDER BY ventas DESC LIMIT 10");
 
         $classification_selected = Classification::readQuery("SELECT * FROM clasificacion WHERE id = '$id'")[0];
 

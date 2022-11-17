@@ -32,7 +32,7 @@ include View::component('navbar');
             <div class="row align-items-start">
                 <?php
                 foreach ($sub_classifications as $sub_classification) {
-                    $products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '{$sub_classification->getId()}' ORDER BY ventas DESC LIMIT 6");
+                    $products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '{$sub_classification->getId()}' ORDER BY ventas DESC LIMIT 10");
 
                     $classification_title = $sub_classification->getName() . ' - ' . $sub_classification->getSubClassification();
 
