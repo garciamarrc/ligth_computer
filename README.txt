@@ -83,8 +83,8 @@ Actividades que logré resolver
     BASICO
     1. REALIZADO.
     2. REALIZADO.
-    3. NO REALIZADO.
-    4. NO REALIZADO.
+    3. REALIZADO.
+    4. REALIZADO.
     5. REALIZADO.
     INTERMEDIO
     1. NO REALIZADO.
