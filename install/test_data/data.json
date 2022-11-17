@@ -1,69 +1,68 @@
 {
-  "specs": {
-    "0": "Memoria RAM: 8 GB",
-    "1": "Tamaño de la pantalla: 15.6'",
-    "2": "Duración de la batería: 12 h",
-    "3": "Tipo de resolución: Full HD",
-    "4": "Con pantalla táctil: No",
-    "5": "Con lector de huella digital: No",
-    "6": "Memoria RAM DDR4",
-    "7": "Gráficos Intel Iris Xe integrados",
-    "8": "Capacidad máxima soportada de la memoria RAM: 16 GB"
-  },
-  "brand": {
-    "0": "Lenovo",
-    "1": "HP",
-    "2": "Dell",
-    "3": "Gateway",
-    "4": "Acer",
-    "5": "Sony",
-    "6": "Toshiba",
-    "7": "Asus",
-    "8": "Samsung",
-    "9": "Lanix",
-    "10": "Ghia"
-  },
-  "models": {
-    "0": "J25",
-    "1": "RX20",
-    "2": "LOB2",
-    "3": "NW2",
-    "4": "J76",
-    "5": "F900",
-    "6": "M21",
-    "7": "X PRO",
-    "8": "SLIM",
-    "9": "XTREME",
-    "10": "RYZEN"
-  },
-  "names": {
-    "0": "Jude Battle",
-    "1": "Hildred Patrick",
-    "2": "Hill Meadows",
-    "3": "Riley Kline",
-    "4": "Rojas Kelly",
-    "5": "Nico Gould",
-    "6": "Tandy Christensen",
-    "7": "Asra Simmons",
-    "8": "Donovan Hutchinson",
-    "9": "Charity Rush",
-    "10": "Marco Garcia"
-  },
-  "classifications": {
-    "0": "Computadoras",
-    "1": "Monitores",
-    "2": "Laptops"
-  },
-  "sub_classifications": {
-    "0": "Para oficina",
-    "1": "Para gamers",
-    "2": "Para estudiantes",
-    "3": "Para productores",
-    "4": "Para desarrolladores",
-    "5": "Para streamers",
-    "6": "Para edición de video",
-    "7": "Gama baja",
-    "8": "Gama media",
-    "9": "Gama alta"
-  }
+  "specs": [
+    "Procesador: ",
+    "Memoria RAM: ",
+    "Tamaño de la pantalla: ",
+    "Duración de la batería: ",
+    "Con pantalla táctil: ",
+    "Con lector de huella digital: ",
+    "Gráficos Intel Iris Xe integrados: "
+  ],
+  "CoreOptions": ["Intel i3", "Intel i5", "Intel i7", "Intel i9"],
+  "RAMoptions": ["4GB", "8GB", "16GB", "32GB"],
+  "ScreenOptions": ["15.6 \"", "14.6 \"", "13.6 \"", "12.6 \""],
+  "BatteryOptions": ["12 Hrs", "15 Hrs", "20 Hrs", "24 Hrs"],
+  "CloseOptions": ["Sí", "No"],
+  "brands": [
+    "Lenovo",
+    "HP",
+    "Dell",
+    "Gateway",
+    "Acer",
+    "Sony",
+    "Toshiba",
+    "Asus",
+    "Samsung",
+    "Lanix",
+    "Ghia"
+  ],
+  "models": [
+    "J25",
+    "RX20",
+    "LOB2",
+    "NW2",
+    "J76",
+    "F900",
+    "M21",
+    "X PRO",
+    "SLIM",
+    "XTREME",
+    "Z"
+  ],
+  "names": [
+    "Jude Battle",
+    "Hildred Patrick",
+    "Hill Meadows",
+    "Riley Kline",
+    "Rojas Kelly",
+    "Nico Gould",
+    "Tandy Christensen",
+    "Asra Simmons",
+    "Donovan Hutchinson",
+    "Charity Rush",
+    "Marco Garcia"
+  ],
+  "classifications": ["Computadoras", "Monitores", "Laptops"],
+  "sub_classifications": [
+    "Para oficina",
+    "Para gamers",
+    "Para estudiantes",
+    "Para productores",
+    "Para desarrolladores",
+    "Para streamers",
+    "Para edición de video",
+    "Gama baja",
+    "Gama media",
+    "Gama alta"
+  ]
 }
