@@ -16,12 +16,28 @@ include View::component('navbar');
     <?php include View::component('categories.accordion') ?>
 
     <div class="row">
-        <div class="col-sm-12 gap-3 my-4">
-            <h2>Productos destacados</h2>
+        <div class="col-sm-12 gap-3 my-4 card p-4">
+            <h2>Productos destacados - Página <?= $page_products ?></h2>
+            <div class="d-flex justify-content-between">
+                <?php if ($page_products > 1) : ?>
+                    <a class="btn btn-primary" class="align-self-start" href="<?= APP_URL . 'home/index/' . ($page_products - 1) ?>">Anterior</a>
+                <?php else : ?>
+                    <span class="btn btn-secondary">Anterior</span>
+                <?php endif; ?>
+                <?php if (!$products) : ?>
+                    <span class="btn btn-secondary">Siguiente</span>
+                <?php else : ?>
+                    <a class="btn btn-primary" href="<?= APP_URL . 'home/index/' . ($page_products + 1) ?>">Siguiente</a>
+                <?php endif; ?>
+            </div>
             <div class="row">
-                <?php foreach ($products as $product) : ?>
-                    <?php include View::component('product.card') ?>
-                <?php endforeach; ?>
+                <?php if (!$products) : ?>
+                    <h2 class="my-4">Ops! Ya no hay más productos.</h2>
+                <?php else : ?>
+                    <?php foreach ($products as $product) : ?>
+                        <?php include View::component('product.card') ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>

@@ -8,13 +8,15 @@ use App\Models\Product;
 
 class HomeController
 {
-  public function index()
+  public function index(int $page_products = 1)
   {
+    $offset_products = ($page_products * 10) - 10;
+
     $classifications = Classification::readQuery("SELECT * FROM clasificacion GROUP BY nombre");
 
     $sub_classifications = Classification::readQuery("SELECT * FROM clasificacion");
 
-    $products = Product::readQuery("SELECT * FROM productos ORDER BY RAND() LIMIT 10");
+    $products = Product::readQuery("SELECT * FROM productos LIMIT 10 OFFSET $offset_products");
 
     include View::view('Home/index');
   }
