@@ -66,6 +66,24 @@ class Classification extends Database
     }
   }
 
+  public static function find(int $id)
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query("SELECT * FROM clasificacion WHERE id = '$id'");
+
+      $row = $query->fetch(PDO::FETCH_ASSOC);
+
+      if (!$row) return false;
+
+      $classification = Classification::createFromArray($row);
+
+      return $classification;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
   public static function readQuery(string $sql)
   {
     try {
