@@ -8,7 +8,7 @@ include View::component('navbar');
 ?>
 
 <div class="container mt-4">
-    <h1 class="display-2">Ligth Agency Computer</h1>
+    <h1 class="display-2">Tu búsqueda</h1>
 
     <hr>
 

@@ -8,7 +8,7 @@ include View::component('navbar');
 ?>
 
 <div class="container mt-4">
-    <h1 class="display-2">Ligth Agency Computer</h1>
+    <h1 class="display-2"><?= $classification_selected->getName() . ' - ' . $classification_selected->getSubClassification(); ?></h1>
 
     <hr>
 
@@ -16,7 +16,7 @@ include View::component('navbar');
 
     <div class="row">
         <div class="col-sm-12 gap-3 my-4">
-            <h2>Productos destacados - <?= $classification_selected->getName() . '/' . $classification_selected->getSubClassification(); ?></h2>
+            <h2>Productos destacados</h2>
             <div class="row">
                 <?php if (count($products) === 0) : ?>
                     <h3 class="text-muted">No se encontraron productos</h3>
