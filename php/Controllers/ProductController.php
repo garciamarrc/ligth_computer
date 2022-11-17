@@ -19,6 +19,8 @@ class ProductController
 
         $comments = Comment::readQuery("SELECT * FROM comentarios WHERE id_producto = '$id' ORDER BY calificacion DESC");
 
+        if (!$product) header("Location: " . APP_URL . "error/notFound");
+
         include View::view('Product/show');
     }
 }

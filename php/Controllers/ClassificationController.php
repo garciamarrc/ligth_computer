@@ -18,6 +18,8 @@ class ClassificationController
 
         $classification_selected = Classification::readQuery("SELECT * FROM clasificacion WHERE id = '$id'")[0];
 
+        if (!$classification_selected) header("Location: " . APP_URL . "error/notFound");
+
         include View::view('Classification/show');
     }
 }
