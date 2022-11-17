@@ -9,6 +9,17 @@ use App\Models\Product;
 
 class ProductController
 {
+    public function search()
+    {
+        if (!$_POST['param']) header("Location: " . APP_URL . "error/notFound");
+
+        $param = $_POST['param'];
+
+        $products = Product::readQuery("SELECT * FROM productos WHERE modelo LIKE '%$param%'");
+
+        include View::view('Product/search');
+    }
+
     public function show(int $id)
     {
         $classifications = Classification::readQuery("SELECT * FROM clasificacion GROUP BY nombre");
