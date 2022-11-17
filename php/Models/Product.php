@@ -13,8 +13,9 @@ class Product extends Database
   private string $specs;
   private float $price;
   private int $id_classification;
+  private int $views;
 
-  public function __construct(string $model, string $specs, float $price, int $id_classification)
+  public function __construct(string $model, string $specs, float $price, int $id_classification, int $views = 0)
   {
     parent::__construct();
 
@@ -22,18 +23,43 @@ class Product extends Database
     $this->specs = $specs;
     $this->price = $price;
     $this->id_classification = $id_classification;
+    $this->views = $views;
   }
 
   public function save()
   {
+    $statement = "INSERT INTO productos (modelo, especificaciones, precio, id_clasificacion)
+    VALUES (:model, :specs, :price, :id_classification)";
+
     try {
-      $statement = "INSERT INTO productos (modelo, especificaciones, precio, id_clasificacion) VALUES (:model, :specs, :price, :id_classification)";
       $query = $this->connect()->prepare($statement);
       $query->execute([
         'model' => $this->model,
         'specs' => $this->specs,
         'price' => $this->price,
         'id_classification' => $this->id_classification,
+      ]);
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
+  public function update()
+  {
+    $statement = "UPDATE productos
+    SET modelo = :model, especificaciones = :specs, precio = :price, id_clasificacion = :id_classification, visitas = :views
+    WHERE id = :id";
+
+    try {
+
+      $query = $this->connect()->prepare($statement);
+      $query->execute([
+        'model' => $this->model,
+        'specs' => $this->specs,
+        'price' => $this->price,
+        'id_classification' => $this->id_classification,
+        'views' => $this->views,
+        'id' => $this->id
       ]);
     } catch (\Throwable $th) {
       throw $th;
@@ -47,6 +73,24 @@ class Product extends Database
       $query = $db->connect()->query("SELECT * FROM productos ORDER BY RAND() LIMIT 1");
 
       $product = Product::createFromArray($query->fetch(PDO::FETCH_ASSOC));
+
+      return $product;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
+  public static function find(int $id)
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query("SELECT * FROM productos WHERE id = '$id'");
+
+      $row = $query->fetch(PDO::FETCH_ASSOC);
+
+      if (!$row) return false;
+
+      $product = Product::createFromArray($row);
 
       return $product;
     } catch (\Throwable $th) {
@@ -73,9 +117,9 @@ class Product extends Database
     }
   }
 
-  public static function createFromArray($arr): Product
+  public static function createFromArray(array $arr): Product
   {
-    $product = new Product($arr['modelo'], $arr['especificaciones'], $arr['precio'], $arr['id_clasificacion']);
+    $product = new Product($arr['modelo'], $arr['especificaciones'], $arr['precio'], $arr['id_clasificacion'], $arr['visitas']);
     $product->setId($arr['id']);
 
     return $product;
@@ -119,5 +163,15 @@ class Product extends Database
   public function getPrice()
   {
     return $this->price;
+  }
+
+  public function setViews(float $views)
+  {
+    $this->views = $views;
+  }
+
+  public function getViews()
+  {
+    return $this->views;
   }
 }

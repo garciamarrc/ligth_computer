@@ -26,11 +26,15 @@ class ProductController
 
         $sub_classifications = Classification::readQuery("SELECT * FROM clasificacion");
 
-        $product = Product::readQuery("SELECT * FROM productos WHERE id = '$id'")[0];
+        $product = Product::find($id);
+
+        if (!$product) header("Location: " . APP_URL . "error/notFound");
+
+        $product->setViews($product->getViews() + 1);
+        $product->update();
 
         $comments = Comment::readQuery("SELECT * FROM comentarios WHERE id_producto = '$id' ORDER BY calificacion DESC");
 
-        if (!$product) header("Location: " . APP_URL . "error/notFound");
 
         include View::view('Product/show');
     }
