@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
                 <h3 class="card-title"><?= $product->getModel(); ?></h3>
-                <p class="card-text text-muted"><?= $product->getSpecs(); ?></p>
+                <p class="card-text text-muted"><?= substr($product->getSpecs(), 0, 59); ?>...</p>
                 <p class="card-text"><strong>$<?= number_format($product->getPrice(), 2); ?></strong></p>
             </div>
         </div>
