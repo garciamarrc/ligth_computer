@@ -54,6 +54,25 @@ class Comment extends Database
     }
   }
 
+  public static function readQuery(string $sql)
+  {
+    try {
+      $db = new Database();
+      $query = $db->connect()->query($sql);
+
+      $rows = [];
+
+      while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        $comment = Comment::createFromArray($row);
+        array_push($rows, $comment);
+      }
+
+      return $rows;
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+
   public static function createFromArray($arr): Comment
   {
     $comment = new Comment($arr['texto'], $arr['nombre'], $arr['calificacion'], $arr['id_producto']);
@@ -65,5 +84,40 @@ class Comment extends Database
   public function setId(int $id)
   {
     $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setText(string $text)
+  {
+    $this->text = $text;
+  }
+
+  public function getText()
+  {
+    return $this->text;
+  }
+
+  public function setName(string $name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setRate(float $rate)
+  {
+    $this->rate = $rate;
+  }
+
+  public function getRate()
+  {
+    return $this->rate;
   }
 }
