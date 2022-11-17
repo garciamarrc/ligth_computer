@@ -169,6 +169,16 @@ class Product extends Database
     return $this->price;
   }
 
+  public function setIdClassification(int $id_classification)
+  {
+    $this->$id_classification = $id_classification;
+  }
+
+  public function getIdClassification()
+  {
+    return $this->id_classification;
+  }
+
   public function setViews(float $views)
   {
     $this->views = $views;

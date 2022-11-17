@@ -35,7 +35,7 @@ use App\Models\Classification;
 
                                                 if (in_array($related_sub_classification->getId(), $loadedSubClassifications)) continue;
 
-                                                array_push($loaded, $related_sub_classification->getId());
+                                                array_push($loadedSubClassifications, $related_sub_classification->getId());
 
                                                 $url = APP_URL . 'classification/show/' . $related_sub_classification->getId();
 
