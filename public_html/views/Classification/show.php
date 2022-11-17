@@ -15,11 +15,23 @@ include View::component('navbar');
     <?php include View::component('categories.accordion') ?>
 
     <div class="row">
-        <div class="col-sm-12 gap-3 my-4">
-            <h2>Productos destacados</h2>
+        <div class="col-sm-12 gap-3 my-4 card p-4">
+            <h2>Productos destacados - Página <?= $page_products ?></h2>
+            <div class="d-flex justify-content-between">
+                <?php if ($page_products > 1) : ?>
+                    <a class="btn btn-primary" class="align-self-start" href="<?= APP_URL . 'classification/show/' . $id . '/' . ($page_products - 1) ?>">Anterior</a>
+                <?php else : ?>
+                    <span class="btn btn-secondary">Anterior</span>
+                <?php endif; ?>
+                <?php if (!$products) : ?>
+                    <span class="btn btn-secondary">Siguiente</span>
+                <?php else : ?>
+                    <a class="btn btn-primary" href="<?= APP_URL . 'classification/show/' . $id . '/' . ($page_products + 1) ?>">Siguiente</a>
+                <?php endif; ?>
+            </div>
             <div class="row">
-                <?php if (count($products) === 0) : ?>
-                    <h3 class="text-muted">No se encontraron productos</h3>
+                <?php if (!$products) : ?>
+                    <h3 class="text-muted my-4">No se encontraron productos</h3>
                 <?php else : ?>
                     <?php foreach ($products as $product) : ?>
                         <?php include View::component('product.card') ?>
@@ -30,8 +42,8 @@ include View::component('navbar');
     </div>
 
     <div class="row">
-        <div class="col-sm-12 gap-3 my-4">
-            <h2>Productos más vendidos</h2>
+        <div class="col-sm-12 gap-3 my-4 card p-4">
+            <h2>Top 10 productos más vendidos de esta categoría</h2>
             <div class="row">
                 <?php if (count($most_sell_products) === 0) : ?>
                     <h3 class="text-muted">No se encontraron productos</h3>

@@ -32,7 +32,7 @@ include View::component('navbar');
             </div>
             <div class="row">
                 <?php if (!$products) : ?>
-                    <h2 class="my-4">Ops! Ya no hay más productos.</h2>
+                    <h3 class="text-muted my-4">No se encontraron productos</h3>
                 <?php else : ?>
                     <?php foreach ($products as $product) : ?>
                         <?php include View::component('product.card') ?>
