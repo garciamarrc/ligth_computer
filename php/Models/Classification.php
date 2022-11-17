@@ -97,16 +97,15 @@ class Classification extends Database
   {
     try {
       $db = new Database();
-      $query = $db->connect()->query("SELECT * FROM clasificacion WHERE clasificacion_hija = '$sub' AND nombre = '$classification'");
+      $query = $db->connect()->query("SELECT * FROM clasificacion WHERE clasificacion_hija = '$sub' AND nombre = '$classification' LIMIT 1");
 
-      $rows = [];
+      $row = $query->fetch(PDO::FETCH_ASSOC);
 
-      while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-        $classification = Classification::createFromArray($row);
-        array_push($rows, $classification);
-      }
+      if (!$row) return false;
 
-      return $rows;
+      $classification = Classification::createFromArray($row);
+
+      return $classification;
     } catch (\Throwable $th) {
       throw $th;
     }

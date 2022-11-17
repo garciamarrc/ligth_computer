@@ -14,8 +14,9 @@ class Product extends Database
   private float $price;
   private int $id_classification;
   private int $views;
+  private int $sells;
 
-  public function __construct(string $model, string $specs, float $price, int $id_classification, int $views = 0)
+  public function __construct(string $model, string $specs, float $price, int $id_classification, int $views = 0, int $sells = 0)
   {
     parent::__construct();
 
@@ -24,12 +25,13 @@ class Product extends Database
     $this->price = $price;
     $this->id_classification = $id_classification;
     $this->views = $views;
+    $this->sells = $sells;
   }
 
   public function save()
   {
-    $statement = "INSERT INTO productos (modelo, especificaciones, precio, id_clasificacion)
-    VALUES (:model, :specs, :price, :id_classification)";
+    $statement = "INSERT INTO productos (modelo, especificaciones, precio, id_clasificacion, ventas)
+    VALUES (:model, :specs, :price, :id_classification, :sells)";
 
     try {
       $query = $this->connect()->prepare($statement);
@@ -38,6 +40,7 @@ class Product extends Database
         'specs' => $this->specs,
         'price' => $this->price,
         'id_classification' => $this->id_classification,
+        'sells' => $this->sells,
       ]);
     } catch (\Throwable $th) {
       throw $th;
@@ -47,7 +50,7 @@ class Product extends Database
   public function update()
   {
     $statement = "UPDATE productos
-    SET modelo = :model, especificaciones = :specs, precio = :price, id_clasificacion = :id_classification, visitas = :views
+    SET modelo = :model, especificaciones = :specs, precio = :price, id_clasificacion = :id_classification, visitas = :views, ventas = :sells
     WHERE id = :id";
 
     try {
@@ -59,6 +62,7 @@ class Product extends Database
         'price' => $this->price,
         'id_classification' => $this->id_classification,
         'views' => $this->views,
+        'sells' => $this->sells,
         'id' => $this->id
       ]);
     } catch (\Throwable $th) {
@@ -119,7 +123,7 @@ class Product extends Database
 
   public static function createFromArray(array $arr): Product
   {
-    $product = new Product($arr['modelo'], $arr['especificaciones'], $arr['precio'], $arr['id_clasificacion'], $arr['visitas']);
+    $product = new Product($arr['modelo'], $arr['especificaciones'], $arr['precio'], $arr['id_clasificacion'], $arr['visitas'], $arr['ventas']);
     $product->setId($arr['id']);
 
     return $product;

@@ -39,8 +39,10 @@ while ($products_iteration < 200) {
   $specs = $jsonGetter->getSpecs();
   $price = rand(10000, 60000);
   $classification_id = Classification::getRandom()->getId();
+  $views = 0;
+  $sells = rand(0, 100);
 
-  $product = new Product($model, $specs, $price, $classification_id);
+  $product = new Product($model, $specs, $price, $classification_id, $views, $sells);
 
   try {
     $product->save();

@@ -34,11 +34,11 @@ ADD
 INSERT INTO
   clasificacion (nombre, clasificacion_hija)
 VALUES
-  ('Notebooks', 'Para oficina'),
-  ('Notebooks', 'Para estudiantes'),
-  ('Notebooks', 'Para diseñadores'),
-  ('Notebooks', 'Para gamers'),
-  ('Notebooks', 'Para programadores'),
+  ('Notebooks', 'Para economistas'),
+  ('Notebooks', 'Para financieros'),
+  ('Notebooks', 'Para artistas'),
+  ('Notebooks', 'Para profesores'),
+  ('Notebooks', 'Para médicos'),
   ('Almacenamiento', 'Memoria USB'),
   ('Almacenamiento', 'Disco duro HDD'),
   ('Almacenamiento', 'Disco solido SSD'),
@@ -203,3 +203,9 @@ ALTER TABLE
   productos
 ADD
   COLUMN visitas INT NOT NULL DEFAULT 0;
+
+/* SE AGREGA LA COLUMNA VENTAS A LA TABLA PRODUCTOS */
+ALTER TABLE
+  productos
+ADD
+  COLUMN ventas INT NOT NULL DEFAULT 0;

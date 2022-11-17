@@ -25,14 +25,25 @@ use App\Models\Classification;
                                 <div id="category-flush-collapse-<?= $category_id ?>" class="accordion-collapse collapse" aria-labelledby="category-flush-heading-<?= $category_id ?>" data-bs-parent="#category-<?= $category_id ?>">
                                     <div class="accordion-body">
                                         <ul>
-                                            <?php foreach ($sub_classifications as $sub_classification) : ?>
-                                                <?php $related_sub_classifications = Classification::subBelongsToClassification($sub_classification->getSubClassification(), $classification->getName()) ?>
-                                                <?php foreach ($related_sub_classifications as $related_sub_classification) : ?>
-                                                    <li>
-                                                        <a href="<?= APP_URL . 'classification/show/' . $sub_classification->getId() ?>"><?= $sub_classification->getSubClassification() ?></a>
-                                                    </li>
-                                                <?php endforeach; ?>
-                                            <?php endforeach; ?>
+                                            <?php
+                                            $loadedSubClassifications = [];
+
+                                            foreach ($sub_classifications as $sub_classification) {
+                                                $related_sub_classification = Classification::subBelongsToClassification($sub_classification->getSubClassification(), $classification->getName());
+
+                                                if (!$related_sub_classification) continue;
+
+                                                if (in_array($related_sub_classification->getId(), $loadedSubClassifications)) continue;
+
+                                                array_push($loaded, $related_sub_classification->getId());
+
+                                                $url = APP_URL . 'classification/show/' . $related_sub_classification->getId();
+
+                                                echo "<li>
+                                                        <a href='{$url}'>{$sub_classification->getSubClassification()}</a>
+                                                    </li>";
+                                            }
+                                            ?>
                                         </ul>
                                     </div>
                                 </div>
