@@ -20,7 +20,7 @@ include View::component('navbar');
     <h2 class="my-4 display-3"><?= $product->getModel() ?></h2>
 
     <?php
-    if ($_SESSION['message']) {
+    if ($_SESSION && $_SESSION['message']) {
         $message = $_SESSION['message'];
         echo "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
