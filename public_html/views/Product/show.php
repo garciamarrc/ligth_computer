@@ -50,7 +50,7 @@ include View::component('navbar');
 
         <div class="col-sm-6">
             <h4 class="mb-4">Comentarios</h4>
-            <div>
+            <div class="mb-4">
                 <form action="<?= APP_URL . 'comment/store/' . $product->getId(); ?>" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
