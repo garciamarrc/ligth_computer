@@ -8,8 +8,9 @@ class CommentController
 {
     public function store(int $id)
     {
-        print_r($_POST);
-        print_r($id);
+        if (!$_POST) {
+            return header("Location: " . APP_URL . "product/show/" . $id);
+        }
 
         $text = $_POST['text'];
         $name = $_POST['name'];
@@ -25,7 +26,7 @@ class CommentController
         } catch (\Throwable $th) {
             $_SESSION['message'] = "Ocurrió un error al agregar el comentario";
         } finally {
-            header("Location: " . APP_URL . "product/show/" . $id);
+            return header("Location: " . APP_URL . "product/show/" . $id);
         }
     }
 }

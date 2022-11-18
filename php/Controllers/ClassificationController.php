@@ -22,7 +22,7 @@ class ClassificationController
 
         $classification_selected = Classification::find($id);
 
-        if (!$classification_selected) header("Location: " . APP_URL . "error/notFound");
+        if (!$classification_selected) return header("Location: " . APP_URL . "error/notFound");
 
         include View::view('Classification/show');
     }

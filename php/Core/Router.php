@@ -13,13 +13,13 @@ class Router
     $controller_namespace = "App\\Controllers\\" . $controller;
 
     if (!class_exists($controller_namespace)) {
-      header("Location: " . APP_URL . "error/notFound");
+      return header("Location: " . APP_URL . "error/notFound");
     }
 
     $controller = new $controller_namespace;
 
     if (!method_exists($controller, $method)) {
-      header("Location: " . APP_URL . "error/notFound");
+      return header("Location: " . APP_URL . "error/notFound");
     }
 
     if (!isset($params)) {

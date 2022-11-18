@@ -11,7 +11,7 @@ class ProductController
 {
     public function search()
     {
-        if (!$_POST['param']) header("Location: " . APP_URL . "error/notFound");
+        if (!$_POST) return header("Location: " . APP_URL . "error/notFound");
 
         $param = $_POST['param'];
 
@@ -28,7 +28,7 @@ class ProductController
 
         $product = Product::find($id);
 
-        if (!$product) header("Location: " . APP_URL . "error/notFound");
+        if (!$product) return header("Location: " . APP_URL . "error/notFound");
 
         $product->setViews($product->getViews() + 1);
         $product->update();
