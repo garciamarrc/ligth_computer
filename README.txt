@@ -107,3 +107,4 @@ PLUSSSSS:
 
 - Añadí la funcionalidad para agregar comentarios en los productos.
 - Al añadir un comentario se muestra una alerta describiendo si fue agregado correctamente o bien, si en su defecto hubo algún error.
+- La app web es Full Responsive Design.
