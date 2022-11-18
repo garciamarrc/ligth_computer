@@ -16,7 +16,7 @@ class HomeController
 
     $sub_classifications = Classification::readQuery("SELECT * FROM clasificacion");
 
-    $products = Product::readQuery("SELECT * FROM productos LIMIT 10 OFFSET $offset_products");
+    $products = Product::readQuery("SELECT * FROM productos ORDER BY likes DESC LIMIT 10 OFFSET $offset_products");
 
     include View::view('Home/index');
   }

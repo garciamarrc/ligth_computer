@@ -82,6 +82,9 @@ Actividades que logré resolver
     2. REALIZADO.
     3. REALIZADO.
     4. REALIZADO.
+    AVANZADO
+    1. REALIZADO
+    2. REALIZADO
 
 2. Comunicación PHP con la base de datos
     BASICO
@@ -108,4 +111,5 @@ PLUSSSSS:
 
 - Añadí la funcionalidad para agregar comentarios en los productos.
 - Al añadir un comentario se muestra una alerta describiendo si fue agregado correctamente o bien, si en su defecto hubo algún error.
+- Añadí la funcionalidad de likes con petición asincrona desde JS.
 - La app web es Full Responsive Design.

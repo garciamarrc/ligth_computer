@@ -16,7 +16,7 @@ class ClassificationController
 
         $sub_classifications = Classification::readQuery("SELECT * FROM clasificacion");
 
-        $products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '$id' LIMIT 10 OFFSET $offset_products");
+        $products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '$id' ORDER BY likes DESC LIMIT 10 OFFSET $offset_products");
 
         $most_sell_products = Product::readQuery("SELECT * FROM productos WHERE id_clasificacion = '$id' ORDER BY ventas DESC LIMIT 10");
 
