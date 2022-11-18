@@ -56,6 +56,16 @@ Pasos para montar el proyecto:
     (ES IMPORTANTE QUE LAS SIGUIENTES DOS VARIABLES FINALICEN EN "/")
     - APP_FOLDER: Nombre de la carpeta a la que movimos el proyecto para usarlo desde XAMPP
     - APP_URL: Url de la app, comunmente se deja como está.
+    
+    En la variable APP_URL no será necesario agregar la carpeta del proyecto, ya que en el codigo PHP se concatena de forma automatica, es decir,
+    podría quedar como:
+    
+    APP_FOLDER=ligth_computer/
+    APP_URL=http://localhost/
+    
+    Y al final la URL del código será APP_URL + APP_FOLDER, o sea http://localhost/ligth_computer/.
+    
+    He aquí la importancia de finalizar ambas variables con "/".
 
 4. Ejecutar el script de SQL que se encuentra en install/init.sql para inicializar la base de datos.
 5. Ejecutar desde la raíz del proyecto php install/init.php para poblar la base de datos con mayor cantidad de recursos.
