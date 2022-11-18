@@ -2,7 +2,7 @@
 
 use App\Helpers\View;
 
-define('HEADER_TITLE', '404');
+define('HEADER_TITLE', '500');
 include View::layout('header.layout');
 ?>
 <div class="d-flex align-items-center justify-content-center vh-100">
