@@ -112,4 +112,5 @@ PLUSSSSS:
 - Añadí la funcionalidad para agregar comentarios en los productos.
 - Al añadir un comentario se muestra una alerta describiendo si fue agregado correctamente o bien, si en su defecto hubo algún error.
 - Añadí la funcionalidad de likes con petición asincrona desde JS.
+- Al haber sido añadida la funcionalidad de likes, los productos destacados no son aleatorios, sino que se listan de acuerdo a la cantidad de likes que tengan.
 - La app web es Full Responsive Design.
