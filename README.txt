@@ -15,7 +15,7 @@ Página de internet: https://marcogarz.netlify.app/
 
 Nivel para resolver el Assessment:
 - Creación de base de datos: INTERMEDIO
-- Comunicacion PHP con la base de datos: INTERMEDIO
+- Comunicacion PHP con la base de datos: INTERMEDIO - AVANZADO
 - Carpeta public_html: AVANZADO
 
 
