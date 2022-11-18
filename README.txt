@@ -92,6 +92,8 @@ Actividades que logré resolver
     INTERMEDIO
     1. REALIZADO.
     2. REALIZADO.
+    AVANZADO
+    5. REALIZADO
 
 3. Carpeta public_html
     BASICO
