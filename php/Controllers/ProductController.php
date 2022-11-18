@@ -37,4 +37,23 @@ class ProductController
 
         include View::view('Product/show');
     }
+
+    public function like(int $id, string $action)
+    {
+        try {
+            $product = Product::find($id);
+
+            if ($action === 'add') {
+                $likes = $product->getLikes() + 1;
+            } else {
+                $likes = $product->getLikes() - 1;
+            }
+
+            $product->setLikes($likes);
+            $product->update();
+            echo json_encode(['current_likes' => $product->getLikes()]);
+        } catch (\Throwable $th) {
+            echo json_encode(['error' => true]);
+        }
+    }
 }

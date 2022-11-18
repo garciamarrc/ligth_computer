@@ -15,6 +15,7 @@ class Product extends Database
   private int $id_classification;
   private int $views;
   private int $sells;
+  private int $likes;
 
   public function __construct(string $model, string $specs, float $price, int $id_classification, int $views = 0, int $sells = 0)
   {
@@ -50,7 +51,7 @@ class Product extends Database
   public function update()
   {
     $statement = "UPDATE productos
-    SET modelo = :model, especificaciones = :specs, precio = :price, id_clasificacion = :id_classification, visitas = :views, ventas = :sells
+    SET modelo = :model, especificaciones = :specs, precio = :price, id_clasificacion = :id_classification, visitas = :views, ventas = :sells, likes = :likes
     WHERE id = :id";
 
     try {
@@ -63,6 +64,7 @@ class Product extends Database
         'id_classification' => $this->id_classification,
         'views' => $this->views,
         'sells' => $this->sells,
+        'likes' => $this->likes,
         'id' => $this->id
       ]);
     } catch (\Throwable $th) {
@@ -125,6 +127,7 @@ class Product extends Database
   {
     $product = new Product($arr['modelo'], $arr['especificaciones'], $arr['precio'], $arr['id_clasificacion'], $arr['visitas'], $arr['ventas']);
     $product->setId($arr['id']);
+    $product->setLikes($arr['likes']);
 
     return $product;
   }
@@ -187,5 +190,15 @@ class Product extends Database
   public function getViews()
   {
     return $this->views;
+  }
+
+  public function setLikes(float $likes)
+  {
+    $this->likes = $likes;
+  }
+
+  public function getLikes()
+  {
+    return $this->likes;
   }
 }
