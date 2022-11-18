@@ -69,7 +69,8 @@ Pasos para montar el proyecto:
 
 4. Ejecutar el script de SQL que se encuentra en install/init.sql para inicializar la base de datos.
 5. Ejecutar desde la raíz del proyecto php install/init.php para poblar la base de datos con mayor cantidad de recursos.
-6. Una vez hecho esto se podrá acceder a la app web desde xampp y comenzaremos a ver datos con los que podremos interactuar.
+6. Modificar la línea 14 del archivo .htaccess, remplazando la URL por la URL del proyecto en XAMPP.
+7. Una vez hecho esto se podrá acceder a la app web desde xampp y comenzaremos a ver datos con los que podremos interactuar.
 
 Actividades que logré resolver
 1. Creación de base de datos:
