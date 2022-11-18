@@ -120,56 +120,56 @@ VALUES
   (
     'Cumple con su función',
     'Antonio García',
-    7.5,
+    4,
     2
   ),
   (
     'Buena relación calidad-precio',
     'Juan Barragán',
-    9,
+    5,
     2
   ),
-  ('Encantado!', 'Luis Morales', 10, 1),
+  ('Encantado!', 'Luis Morales', 5, 1),
   (
     'Un equipo muy rápido',
     'Rafael Velazques',
-    10,
+    5,
     1
   ),
   (
     'Lo recibí en mal estado. Al final tuve que solicitar un reemplazo',
     'Nora Cortes',
-    5,
+    1,
     8
   ),
   (
     'Imprime con muy buen color',
     'Araceli Herrera',
-    9,
+    4,
     8
   ),
   (
     'El escaner es impresionante por un costo tan bajo',
     'Axel Araiza',
-    10,
+    5,
     7
   ),
   (
     'Me ayuda mucho en mis estudios',
     'Abraham Cortes',
-    10,
+    5,
     2
   ),
   (
     'Justo lo que necesitaba para mis diseños',
     'Daniela Villanueva',
-    10,
+    5,
     10
   ),
   (
     'Un buen equipo para desarrollar',
     'Roberto Chavez',
-    9,
+    4,
     9
   );
 
