@@ -56,7 +56,7 @@ $log->writeLog("Productos insertados: $products_inserctions");
 
 while ($comments_iteration < 1000) {
   $text = substr($lorem_data, rand(0, 500), rand(500, 1000));
-  $rate = rand(0, 5);
+  $rate = rand(1, 5);
   $product_id = Product::getRandom()->getId();
   $name = $jsonGetter->getNames(rand(0, 10));
 

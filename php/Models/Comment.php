@@ -13,6 +13,7 @@ class Comment extends Database
   private string $name;
   private float $rate;
   private int $id_product;
+  private string $created_at;
 
   public function __construct(string $text, string $name, float $rate, int $id_product)
   {
@@ -77,6 +78,7 @@ class Comment extends Database
   {
     $comment = new Comment($arr['texto'], $arr['nombre'], $arr['calificacion'], $arr['id_producto']);
     $comment->setId($arr['id']);
+    $comment->setCreatedAt($arr['created_at']);
 
     return $comment;
   }
@@ -119,5 +121,15 @@ class Comment extends Database
   public function getRate()
   {
     return $this->rate;
+  }
+
+  public function setCreatedAt(string $created_at)
+  {
+    $this->created_at = $created_at;
+  }
+
+  public function getCreatedAt()
+  {
+    return $this->created_at;
   }
 }

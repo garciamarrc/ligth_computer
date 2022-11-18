@@ -20,8 +20,4 @@ class HomeController
 
     include View::view('Home/index');
   }
-
-  public function show()
-  {
-  }
 }

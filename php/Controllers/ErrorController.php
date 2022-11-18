@@ -10,4 +10,9 @@ class ErrorController
     {
         include View::view('Errors/404');
     }
+
+    public function internalError()
+    {
+        include View::view('Errors/500');
+    }
 }

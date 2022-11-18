@@ -44,7 +44,7 @@ Requisitos para montar el proyecto:
 - XAMPP
 
 Pasos para montar el proyecto:
-1. Clonar el respositorio desde Github
+1. Clonar el respositorio desde Github y mover a la carpeta de XAMPP
 2. Ejecutar desde la raíz del proyecto composer dump-autoload
 3. Modificar el archivo install/config.ini y definir lo siguiente:
     - HOST: Host de la base de datos
@@ -90,3 +90,10 @@ Actividades que logré resolver
     1. NO REALIZADO.
     AVANZADO
     1. REALIZADO
+
+
+
+PLUSSSSS:
+
+- Añadí la funcionalidad para agregar comentarios en los productos.
+- Al añadir un comentario se muestra una alerta describiendo si fue agregado correctamente o bien, si en su defecto hubo algún error.

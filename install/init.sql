@@ -1,12 +1,12 @@
-USE computo;
-
 /* CREACIÓN DE TABLAS */
 CREATE TABLE productos (
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   modelo VARCHAR(255) NOT NULL,
   especificaciones TEXT NOT NULL,
   precio DECIMAL(10, 2) NOT NULL,
-  id_clasificacion BIGINT NOT NULL
+  id_clasificacion BIGINT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE comentarios (
@@ -15,13 +15,17 @@ CREATE TABLE comentarios (
   nombre VARCHAR(255) NOT NULL,
   calificacion DECIMAL(10, 1) NOT NULL,
   id_producto BIGINT NOT NULL,
-  CONSTRAINT fk_producto FOREIGN KEY (id_producto) REFERENCES productos(id) ON DELETE CASCADE
+  CONSTRAINT fk_producto FOREIGN KEY (id_producto) REFERENCES productos(id) ON DELETE CASCADE,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE clasificacion (
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
-  clasificacion_hija VARCHAR (255) NOT NULL
+  clasificacion_hija VARCHAR (255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 /* SE AGREGA EL FOREIGN KEY DESPUÉS DE QUE LA REFERENCIA ES CREADA */
@@ -120,56 +124,56 @@ VALUES
   (
     'Cumple con su función',
     'Antonio García',
-    7.5,
+    4,
     2
   ),
   (
     'Buena relación calidad-precio',
     'Juan Barragán',
-    9,
+    5,
     2
   ),
-  ('Encantado!', 'Luis Morales', 10, 1),
+  ('Encantado!', 'Luis Morales', 5, 1),
   (
     'Un equipo muy rápido',
     'Rafael Velazques',
-    10,
+    5,
     1
   ),
   (
     'Lo recibí en mal estado. Al final tuve que solicitar un reemplazo',
     'Nora Cortes',
-    5,
+    1,
     8
   ),
   (
     'Imprime con muy buen color',
     'Araceli Herrera',
-    9,
+    4,
     8
   ),
   (
     'El escaner es impresionante por un costo tan bajo',
     'Axel Araiza',
-    10,
+    5,
     7
   ),
   (
     'Me ayuda mucho en mis estudios',
     'Abraham Cortes',
-    10,
+    5,
     2
   ),
   (
     'Justo lo que necesitaba para mis diseños',
     'Daniela Villanueva',
-    10,
+    5,
     10
   ),
   (
     'Un buen equipo para desarrollar',
     'Roberto Chavez',
-    9,
+    4,
     9
   );
 
@@ -195,7 +199,9 @@ CREATE TABLE accesorios (
   especificaciones TEXT NOT NULL,
   precio DECIMAL(10, 2) NOT NULL,
   id_clasificacion BIGINT NOT NULL,
-  CONSTRAINT fk_clasificacion FOREIGN KEY (id_clasificacion) REFERENCES clasificacion(id)
+  CONSTRAINT fk_clasificacion FOREIGN KEY (id_clasificacion) REFERENCES clasificacion(id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 /* SE AGREGA LA COLUMNA VISITAS A LA TABLA PRODUCTOS */

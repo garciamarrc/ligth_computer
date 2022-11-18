@@ -11,4 +11,8 @@ define('APP_NAME', 'Ligth Computer');
 use App\Core\Request;
 use App\Core\Router;
 
-Router::run(new Request());
+try {
+    Router::run(new Request());
+} catch (\Throwable $th) {
+    header("Location: " . APP_URL . "error/internalError");
+}
