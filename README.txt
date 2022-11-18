@@ -98,7 +98,7 @@ Actividades que logré resolver
     4. REALIZADO.
     5. REALIZADO.
     INTERMEDIO
-    1. NO REALIZADO.
+    1. REALIZADO.
     AVANZADO
     1. REALIZADO
 
