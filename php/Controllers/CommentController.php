@@ -21,9 +21,9 @@ class CommentController
             $comment = new Comment($text, $name, $rate, $id);
             $comment->save();
 
-            $_SESSION['message'] = "Comentario guardado";
+            $_SESSION['message'] = "Comentario agregado";
         } catch (\Throwable $th) {
-            $_SESSION['message'] = "Ocurrió un error al guardar el comentario";
+            $_SESSION['message'] = "Ocurrió un error al agregar el comentario";
         } finally {
             header("Location: " . APP_URL . "product/show/" . $id);
         }
