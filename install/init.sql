@@ -215,3 +215,29 @@ ALTER TABLE
   productos
 ADD
   COLUMN ventas INT NOT NULL DEFAULT 0;
+
+/* SE CREA PROCEDIMIENTO QUE CALCULA MENSUALIDADES CON INTERES DEL 10% ANUAL.
+  RECIBE EL ID DEL PRODUCTO Y LA CANTIDAD DE MESES COMO PARAMETROS*/
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calculaPrecioConIntereses`(IN `_producto_id` INT, IN `_meses` INT)
+BEGIN
+  DECLARE _precio DECIMAL(10, 2);
+  DECLARE _interes_por_mes DECIMAL(10, 2);
+  DECLARE _interes_por_meses DECIMAL(10, 2);
+  DECLARE _precio_total DECIMAL(10, 2);
+  
+  SELECT precio INTO _precio FROM productos WHERE id = _producto_id;
+  SELECT (((_precio / 100) * 10) / 12) INTO _interes_por_mes;
+  SELECT (_interes_por_mes * _meses) INTO _interes_por_meses;
+  SELECT (_precio + _interes_por_meses) INTO _precio_total;
+  SELECT _meses, _precio, _interes_por_mes, _interes_por_meses, _precio_total;
+END$$
+DELIMITER ;
+
+/* EJEMPLO DE LLAMADA DE PROCEDIMIENTO
+
+  CALL `calculaPrecioConIntereses`(1, 6);
+
+  En este caso calcularía con el precio del producto con ID 1 a un total de 6 meses,
+
+*/
