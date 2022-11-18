@@ -33,7 +33,7 @@ class ProductController
         $product->setViews($product->getViews() + 1);
         $product->update();
 
-        $comments = Comment::readQuery("SELECT * FROM comentarios WHERE id_producto = '$id' ORDER BY calificacion DESC");
+        $comments = Comment::readQuery("SELECT * FROM comentarios WHERE id_producto = '$id' ORDER BY created_at DESC");
 
         include View::view('Product/show');
     }

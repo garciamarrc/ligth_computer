@@ -22,7 +22,8 @@ include View::component('navbar');
     <?php
     if ($_SESSION['message']) {
         $message = $_SESSION['message'];
-        echo "<div class='alert alert-primary' role='alert'>
+        echo "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
         <strong>$message</strong>
         </div>";
         $_SESSION['message'] = false;
