@@ -14,7 +14,7 @@ Correo de contacto: social.6g0b3@aleeas.com
 Página de internet: https://marcogarz.netlify.app/
 
 Nivel para resolver el Assessment:
-- Creación de base de datos: INTERMEDIO
+- Creación de base de datos: INTERMEDIO - AVANZADO
 - Comunicacion PHP con la base de datos: INTERMEDIO - AVANZADO
 - Carpeta public_html: AVANZADO
 
